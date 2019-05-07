@@ -1,4 +1,13 @@
 
+// "texture_scanner" by garabatospr 
+// http://www.openprocessing.org/sketch/557904
+// Licensed under Creative Commons Attribution 
+// ShareAlike https://creativecommons.org/licenses/by-sa/3.0
+// https://creativecommons.org/licenses/GPL/2.0/
+// Feel free to do whatever you want with this code.  
+// If you do use it,I would like to see what you did. 
+// Send me an email to mecobi@gmail.com
+
 PImage img;
 
 Square[] square;
