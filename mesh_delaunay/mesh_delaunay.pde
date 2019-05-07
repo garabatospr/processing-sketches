@@ -1,5 +1,14 @@
 import megamu.mesh.*;
 
+// "mesh_delaunay" by garabatospr 
+// http://www.openprocessing.org/sketch/557904
+// Licensed under Creative Commons Attribution 
+// ShareAlike https://creativecommons.org/licenses/by-sa/3.0
+// https://creativecommons.org/licenses/GPL/2.0/
+// Feel free to do whatever you want with this code.  
+// If you do use it,I would like to see what you did. 
+// Send me an email to mecobi@gmail.com
+
 // image 
 
 PImage img; 
@@ -29,51 +38,6 @@ void setup()
   smooth(5);
 }
 
-
-/////////////////////////////////////
-// generate a circular grid of points
-/////////////////////////////////////
-
-void circularGrid(float xCenter, float yCenter,float rad) {
- 
- float theta0 = 0.01;
- float theta1 = 2*PI;
- float dtheta = (theta1 - theta0)/50.0;
- int   ntheta = floor((theta1 - theta0)/dtheta); 
-
-
- float r0 = 0;
- float r1 = rad;
- float dr = (r1 - r0)/(np/ntheta);
-
- float drad = float(ntheta)/np;
-
- int ip = 0;
-
- for(float ang = theta0; ang < theta1; ang+= dtheta)
- {
-   for(float r= r0;r< r1;r+=dr)
-   {
-
-      float x = xCenter + r*cos(ang);
-      float y = yCenter + r*sin(ang); 
-
-      if (ip > np - 1)
-      {
-        break; 
-      }
-
-      points[ip][0] = x;
-      points[ip][1] = y;
-
-      ip++;
-   }
- }
-
-  drawDelaunay(points);
-
-}
-
 /////////////////////////////
 // rectangular grid of points 
 /////////////////////////////
@@ -94,51 +58,7 @@ void drawOnePiece(float xmin,float xmax,float ymin,float ymax)
 
 }
 
-///////////////////
-// draw three grids
-///////////////////
 
-void drawThreePieces()
-{
-
-  int borde = 10;
-
-  for(int i=0;i < np;i++)
-  {
-
-    float x = random(borde,width - borde);
-    float y = random(borde,height/3 - borde/3);
-    
-    points[i][0] = x;
-    points[i][1] = y;
-  }
-  
-  drawDelaunay(points);
-
-  for(int i=0;i < np;i++)
-  {
-
-    float x = random(borde,width - borde);
-    float y = random(height/3 + borde/3,2*height/3 - borde/3);
-    points[i][0] = x;
-    points[i][1] = y;
-  }
-
-  drawDelaunay(points);
-
-
-  for(int i=0;i < np;i++)
-  {
-
-    float x = random(borde,width - borde);
-    float y = random(2*height/3 + borde/3,height - borde/3);
-    points[i][0] = x;
-    points[i][1] = y;
-  }
-
-  drawDelaunay(points);
-
-}
 
 
 void draw()
