@@ -27,7 +27,7 @@ void settings()
 void setup() 
 {
 
-  img = loadImage("monalisa.png");
+  img = loadImage("monalisa.jpg");
 
   textureMode(IMAGE);
 
