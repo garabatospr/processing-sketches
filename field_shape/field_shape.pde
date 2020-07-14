@@ -77,8 +77,8 @@ void fieldShape(PVector p,float myScale)
   for(int i=0;i < nVertex;i++)
   {
 
-    p.x += vector__field(p.x,p.y,myNoise).x*stepSize;
-    p.y += vector__field(p.x,p.y,myNoise).y*stepSize;
+    p.x += vector__field(p.x,p.y,myScale).x*stepSize;
+    p.y += vector__field(p.x,p.y,myScale).y*stepSize;
     
     vertex(p.x,p.y);
   }
